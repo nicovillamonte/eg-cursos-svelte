@@ -22,15 +22,15 @@
 
   ul {
     list-style: none;
-  padding: 0;
+    padding: 0;
 
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
 
-  max-width: 90%;
-  margin: 0 auto;
-  justify-items: stretch;
+    max-width: 90%;
+    margin: 0 auto;
+    justify-items: stretch;
   }
 
   li {
