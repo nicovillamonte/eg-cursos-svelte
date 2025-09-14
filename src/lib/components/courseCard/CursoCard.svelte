@@ -41,6 +41,10 @@
     transition: box-shadow 0.3s ease;
     width: 100%;
     height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .course-card:hover {
@@ -51,7 +55,6 @@
     margin: 0;
     font-size: 1.5rem;
     color: #333;
-    /* Only one line */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -81,7 +84,6 @@
   }
 
   footer a:hover {
-    /* text-decoration: underline; */
     color: #0a58ca;
   }
 

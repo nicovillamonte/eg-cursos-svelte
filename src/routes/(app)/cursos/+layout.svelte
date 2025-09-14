@@ -2,23 +2,36 @@
   const { children } = $props()
 </script>
 
-<div>
-  <h1>Listado de Cursos</h1>
-  <p>(Renderizado en Layout de /cursos)</p>
+<div class="header-cursos">
+  <div class="header-info">
+    <h1>Listado de Cursos</h1>
+    <p>(Renderizado en Layout de /cursos)</p>
+  </div>
+  <div>
+    <a href="/cursos/aplicar">Aplicar a un curso</a>
+  </div>
 </div>
 
 {@render children()}
 
 <style>
-  div {
+  .header-cursos {
     display: flex;
     gap: 1rem;
     background-color: #f0f0f0;
     padding: 1rem;
     border-radius: 5px;
     margin-bottom: 1rem;
+    align-items: center;
+    justify-content: space-between;
 
     min-width: 340px;
+  }
+
+  .header-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
   }
 
   h1 {
@@ -27,7 +40,7 @@
   }
 
   p {
-    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
     color: #555;
   }
 </style>
