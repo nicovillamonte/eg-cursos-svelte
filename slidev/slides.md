@@ -158,8 +158,17 @@ src/
      └─ +page.svelte                 # /cursos
 ```
 
-<div v-click="2" class="mt-10 color-gray">
+<div v-click="2" class="mt-10 color-gray" v-motion
+    :initial="{ opacity: 0, x: -12 }"
+    :enter="{ opacity: 1, x: 0 }">
 Todos los directorios dentro de <code>routes</code> pueden tener su propio <code>+layout.svelte</code> que aplicará a todas las páginas hijas de ese directorio.
+
+```text {2-3}
+...
+cursos/
+  ├─ +layout.svelte
+  └─ +page.svelte                 # /cursos
+```
 </div>
 
 ---
@@ -184,10 +193,9 @@ Una vez que se crea el archivo `+layout.svelte`, la página que se renderiza por
 ```
 
 
-<div class=" mt-6">
-<b>Slot</b> es una característica de Svelte deprecada, que sigue funcionando pero no se recomienda su uso en nuevos proyectos. En su lugar, se puede utilizar la sintaxis de props para pasar componentes hijos y renderizarlo dentro del componente padre.
+<div class=" mt-6" v-click="1">
+<b>Slot</b> es una característica de Svelte <span class="text-red-400">deprecada</span>, que sigue funcionando pero no se recomienda su uso en nuevos proyectos. En su lugar, se puede utilizar la sintaxis de <span class="text-green-400">props</span> para pasar componentes hijos y renderizarlo dentro del componente padre.
 </div>
-
 
 ---
 transition: slide-left
@@ -278,11 +286,94 @@ Para obtener el valor del parámetro en la página, se puede utilizar la funció
 
 ```vue {monaco}
 <script lang="ts">
-  import { page } from '$app/stores';
+  import { page } from '$app/state';
 </script>
 
 <h1>Curso ID: {$page.params.id}</h1>
 ```
 
-TODO: Poner foto aca de la pagina con el id
+<div class="w-full flex justify-center">
+  <img class="border-4 border-white/10 rounded-lg shadow-lg mt-6" src="./assets/parametrosDinamicos.gif" alt="Pagina Curso ID" />
+</div>
+
+
+---
+transition: slide-left
+---
+
+# Grupos de Rutas
+
+Los grupos de rutas permiten organizar las rutas sin afectar la estructura de las URLs. Se crean utilizando paréntesis en los nombres de las carpetas.
+
+```text {3,10|10-12}
+src/
+  routes/
+  ├─ (usuarios)/
+  │ ├─ +layout.svelte
+  │ ├─ +page.svelte                    # /
+  │ └─ cursos/
+  │   ├─ [id]/
+  │   │  └─ +page.svelte              # /cursos/:id
+  │   └─ +page.svelte                 # /cursos
+  └─ (admin)/
+    └─ settings/
+        └─ +page.svelte                 # /settings
+```
+
+<div class="w-full flex justify-center" v-click="1">
+  <img class="border-4 border-white/10 rounded-lg shadow-lg mt-6" src="./assets/gruposEjemplo.gif" alt="Grupos de Rutas" />
+</div>
+
+---
+transition: slide-left
+---
+
+## Rutas Duplicadas
+
+<script setup>
+import { ref } from 'vue'
+const answer = ref('')
+</script>
+
+¿Qué pasaría en este caso?
+
+
+```text {3-6}
+src/
+  routes/
+  ├─ (usuarios)/
+  │ └─ +page.svelte
+  └─ (admin)/
+    └─ +page.svelte
+```
+
+<form class="space-y-3 mt-10">
+  <label class="block">
+    <input type="radio" v-model="answer" value="a" />
+    Va a arrojar un error de conflicto de rutas.
+  </label>
+  <label class="block">
+    <input type="radio" v-model="answer" value="b" />
+    Se va a pisar el <code>+page.server</code> primer grupo por el segundo.
+  </label>
+  <label class="block">
+    <input type="radio" v-model="answer" value="c" />
+    Va a darle más prioridad al grupo que esté primero en el árbol de archivos.
+  </label>
+</form>
+
+<div class="mt-6">
+  <div v-if="answer === 'a'" class="text-green-400 font-bold">
+    <div>✅ Correcto, hay un conflicto de rutas.</div>
+    <div class="w-full flex justify-center">
+      <img class="border-4 border-white/10 rounded-lg shadow-lg mt-6" src="./assets/errorConflictoRutas.png" alt="Grupos de Rutas" />
+    </div>
+  </div>
+  <div v-else-if="answer === 'b'" class="text-red-400 font-bold">
+    ❌ Incorrecto, no sucede como en CSS.
+  </div>
+  <div v-else-if="answer === 'c'" class="text-red-400 font-bold">
+    ❌ Incorrecto, el orden no importa ya que generalmente se ordena alfabéticamente y nos daría poco control.
+  </div>
+</div>
 
