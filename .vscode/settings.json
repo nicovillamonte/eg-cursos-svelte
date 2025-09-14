@@ -17,7 +17,8 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
-	// New files allways as LF line endings (not CRLF on Windows)
-	,"files.eol": "\n"
+  },
+	"[markdown]": {
+		"editor.defaultFormatter": "yzhang.markdown-all-in-one"
+	}
 }
