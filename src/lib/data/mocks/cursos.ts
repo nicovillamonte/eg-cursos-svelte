@@ -6,7 +6,7 @@ export const CURSOS_MOCK: Curso[] = [
     id: 1,
     titulo: 'Introducción a Svelte',
     descripcion: 'Aprende los conceptos básicos de Svelte.',
-    lecciones: 10,
+    lecciones: 12,
     duracionEnMinutos: 600,
     nivel: Nivel.Principiante
   },
@@ -14,7 +14,7 @@ export const CURSOS_MOCK: Curso[] = [
     id: 2,
     titulo: 'Svelte Avanzado',
     descripcion: 'Profundiza en las características avanzadas de Svelte.',
-    lecciones: 15,
+    lecciones: 8,
     duracionEnMinutos: 900,
     nivel: Nivel.Avanzado
   },
@@ -23,7 +23,7 @@ export const CURSOS_MOCK: Curso[] = [
     titulo: 'Desarrollo de Aplicaciones con SvelteKit',
     descripcion: 'Construye aplicaciones completas usando SvelteKit.',
     lecciones: 20,
-    duracionEnMinutos: 1200,
+    duracionEnMinutos: 1230,
     nivel: Nivel.Intermedio
   },
   {
@@ -46,7 +46,7 @@ export const CURSOS_MOCK: Curso[] = [
     id: 6,
     titulo: 'Eventos y Formularios en Svelte',
     descripcion: 'Manejo de eventos, bindings y envío de formularios.',
-    lecciones: 9,
+    lecciones: 3,
     duracionEnMinutos: 540,
     nivel: Nivel.Principiante
   },
@@ -54,7 +54,7 @@ export const CURSOS_MOCK: Curso[] = [
     id: 7,
     titulo: 'Slots y Componentes Reutilizables',
     descripcion: 'Patrones con slots para componer interfaces limpias.',
-    lecciones: 8,
+    lecciones: 10,
     duracionEnMinutos: 480,
     nivel: Nivel.Principiante
   },
@@ -185,5 +185,5 @@ export const CURSOS_MOCK: Curso[] = [
     lecciones: 16,
     duracionEnMinutos: 960,
     nivel: Nivel.Avanzado
-  }
+  },
 ]
