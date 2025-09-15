@@ -407,7 +407,7 @@ Esto permite que cada grupo de rutas tenga su propio layout sin interferir entre
 transition: slide-left
 ---
 
-# Bonus: Errores
+# Errores
 
 Por defecto, si se accede a una ruta que no existe, SvelteKit mostrará una página de error genérica.
 
@@ -487,6 +487,37 @@ Además, se puede obtener información del error de la siguiente manera:
 <h1>Error: {page.status}</h1>
 <p>{page.error?.message}</p>
 ```
+
+</v-click>
+
+
+---
+transition: slide-left
+---
+
+# Bonus: Query Params
+
+Los query params son parámetros que se pasan en la URL después del símbolo `?`. Por ejemplo, en la URL `http://localhost:5173/cursos?categoria=programacion`, `categoria` es un query param con el valor `programacion`.
+
+Para acceder a los query params en una página de SvelteKit, se puede utilizar la función `page` del módulo `$app/stores`.
+
+<v-click>
+
+```vue {monaco}
+<script lang="ts">
+  import { page } from '$app/state';
+  const categoria = page.url.searchParams.get('categoria') ?? ''
+</script>
+
+<h1>Pagina de Cursos</h1>
+<p>Categoría: {categoria}</p>
+```
+</v-click>
+<v-click>
+
+<div class="w-full flex justify-center">
+  <img class="border-4 border-white/10 rounded-lg shadow-lg mt-4" src="./assets/queryParams.png" alt="Query Params" />
+</div>
 
 </v-click>
 
