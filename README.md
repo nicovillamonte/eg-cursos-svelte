@@ -1,3 +1,30 @@
+# Ejemplo - Cursos
+
+Este es un ejemplo básico de una aplicación web de cursos utilizando SvelteKit para demostrar cómo funcionan lo básico de las rutas en SvelteKit.
+
+## Configuración inicial
+
+Todos los comandos se deben correr en la raíz del proyecto.
+
+### Instalar dependencias
+
+```bash
+yarn install
+```
+
+### Ver Slides (Opcional)
+
+```bash
+yarn slides
+```
+
+### Correr la app
+
+```bash
+yarn dev
+```
+
+
 # Rutas en SvelteKit
 
 SvelteKit utiliza un sistema de enrutamiento basado en el sistema de archivos. Cada archivo y carpeta dentro del directorio `src/routes` corresponde a una ruta en la aplicación web. A continuación, se describen los conceptos clave para entender cómo funcionan las rutas en SvelteKit.
