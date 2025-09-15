@@ -1,7 +1,8 @@
 {
-  "name": "eg-cursos-svelte",
+  "name": "eg-cursos-svelte-slides",
   "type": "module",
   "private": true,
+  "version": "0.0.1",
   "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",

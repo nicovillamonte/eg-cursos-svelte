@@ -1,6 +1,9 @@
 {
 	"name": "eg-cursos-svelte",
 	"private": true,
+	"workspaces": [
+		"slidev"
+	],
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
@@ -14,7 +17,8 @@
 		"lint:fix": "eslint src --fix",
 		"test": "vitest",
 		"test:coverage": "vitest run --coverage",
-		"test:ci": "npm run test -- --run --coverage"
+		"test:ci": "npm run test -- --run --coverage",
+		"slides": "yarn workspace eg-cursos-svelte-slides dev"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
