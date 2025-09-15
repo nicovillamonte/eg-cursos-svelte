@@ -24,6 +24,10 @@ yarn slides
 yarn dev
 ```
 
+# Demo
+
+![Demo](./src/lib/assets/demo.gif)
+
 
 # Rutas en SvelteKit
 
