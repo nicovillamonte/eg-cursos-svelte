@@ -5,12 +5,11 @@ theme: seriph
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
-title: Welcome to Slidev
+title: Svelte Routing
+author: Nicolás Villamonte
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
+  ## Introducción a Svelte Routing
+  Curso de Algoritmos y Programación III - UNSAM
 # apply unocss classes to the current slide
 class: text-center
 # https://sli.dev/features/drawing
@@ -29,7 +28,7 @@ seoMeta:
 hideInToc: true
 ---
 
-# Svelte Routing {toc="false"}
+# Svelte Routing
 
 <div class="abs-br m-6 text-xl">
   <a href="https://svelte.dev/docs/kit/routing" target="_blank" class="slidev-icon-btn">
@@ -377,3 +376,136 @@ src/
   </div>
 </div>
 
+---
+transition: slide-left
+---
+
+## Layout duplicados
+
+Los layouts se pueden duplicar en diferentes grupos de rutas sin problemas. Por ejemplo:
+
+```text {4,8|4-6,8-10}
+src/
+  routes/
+  ├─ (usuarios)/
+  │ ├─ +layout.svelte
+  │ └─ cursos/
+  │    └─ +page.svelte             # /cursos
+  └─ (admin)/
+    ├─ +layout.svelte
+    └─ configuracion/
+       └─ +page.svelte             # /configuracion
+```
+
+Esto permite que cada grupo de rutas tenga su propio layout sin interferir entre sí.
+
+<div class="w-full flex justify-center" v-click="1">
+  <img class="border-4 border-white/10 rounded-lg shadow-lg" src="./assets/layoutsGrupos.gif" alt="Layouts en Grupos de Rutas" />
+</div>
+
+---
+transition: slide-left
+---
+
+# Bonus: Errores
+
+Por defecto, si se accede a una ruta que no existe, SvelteKit mostrará una página de error genérica.
+
+<div class="w-full flex justify-center">
+  <img class="border-4 border-white/10 rounded-lg shadow-lg" src="./assets/route404.png" alt="Layouts en Grupos de Rutas" />
+</div>
+
+<div v-click="1" class="mt-6" v-motion
+    :initial="{ opacity: 0, x: -12 }"
+    :enter="{ opacity: 1, x: 0 }">
+A veces vamos a querer personalizar esta página de error para que se ajuste al estilo de nuestra aplicación o para proporcionar información más útil a los usuarios.
+</div>
+
+---
+layout: two-cols
+transition: slide-left
+layoutClass: gap-8
+---
+  
+## Archivo `+error.svelte`
+
+El archivo `+error.svelte` permite personalizar la página de error para todas las rutas dentro de su carpeta y subcarpetas.
+
+```text {3}
+src/
+  routes/
+  ├─ +error.svelte
+  ├─ +layout.svelte
+  ├─ +page.svelte                    # /
+  └─ cursos/
+      └─ +page.svelte                 # /cursos
+```
+
+`+error.svelte`:
+```vue {monaco}
+<h1>Se produjo un error inesperado</h1>
+<p>Contactese con el administrador del sistema.</p>
+```
+
+::right::
+
+<div class="w-full h-full flex items-center justify-center" v-click="1" v-motion
+:initial="{ y: -120, opacity: 0 }"
+:enter="{ y: 0, opacity: 1, transition: { duration: 700, easing: 'ease-out' } }">
+  <img class="border-4 border-white/10 rounded-lg shadow-lg" src="./assets/errorInesperado.png" alt="Layouts en Grupos de Rutas" />
+</div>
+
+---
+transition: slide-left
+hideInToc: true
+---
+
+## Archivo `+error.svelte`
+
+Si se crea un archivo `+error.svelte` en una subcarpeta, este manejará los errores solo para las rutas dentro de esa carpeta.
+
+```text {7}
+src/
+  routes/
+  ├─ +error.svelte
+  ├─ +layout.svelte
+  ├─ +page.svelte                    # /
+  └─ cursos/
+    ├─ +error.svelte
+    └─ +page.svelte                 # /cursos
+```
+
+<v-click>
+
+Además, se puede obtener información del error de la siguiente manera:
+
+```vue {monaco}
+<script lang="ts">
+  import { page } from '$app/state';
+</script>
+
+<h1>Error: {page.status}</h1>
+<p>{page.error?.message}</p>
+```
+
+</v-click>
+
+---
+layout: center
+transition: slide-left
+class: text-center
+hideInToc: true
+---
+
+# Ejemplo
+ 
+## Cursos
+
+---
+layout: center
+transition: slide-left
+class: flex items-center justify-center text-center
+hideInToc: true
+---
+
+# Gracias!
