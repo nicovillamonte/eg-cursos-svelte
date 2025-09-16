@@ -1,10 +1,15 @@
+<script>
+  import quienesSomosImage1 from '$lib/assets/quienes-somos1.png'
+  import quienesSomosImage2 from '$lib/assets/quienes-somos2.jpg'
+</script>
+
 <h1>Sobre nosotros</h1>
 
 <section>
 
   <div class="img-big">
     <img
-        src="https://lh3.googleusercontent.com/Q3O8HkIoZfu0puyRZcJ6esUqLyVFzH4gI2lLOjxGllLHTdpRT0WE9V5k4TusgPcFCmyCgBoW05ivPk5yX5Og-PSmN7hAiMIUkykkYE9aheUwhn-k3C2XMgvVWh8BvGte8ARU4zEbE2uMatapasQ9IEBegL0ROMf4WSC7qvnsHjkFWIdozKLh7A=w1280"
+        src={quienesSomosImage1}
         alt="img2"
       />
   </div>
@@ -22,7 +27,7 @@
 
   <img
   class="img-small"
-  src="https://lh5.googleusercontent.com/C8i067-RODwE4jwz98eAmgQYaQHIox-AlloNu6ZOGKsXOj-FD6G82rKwzaKaHfGTyQZtx8gUsTty26ctTS-s8p_mUNkfifPqQ7AycN9imIolJiYmOIFxqu6wVDEd3LRY0X6HZ0bJCOFJbnCKIiar3Ru6vyXcbCJNDqqI65gq_H6hdmmPlMvlzw=w1280"
+  src={quienesSomosImage2}
   alt="img1"
 />
 </section>
