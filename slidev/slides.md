@@ -144,7 +144,7 @@ transition: slide-left
 El archivo `+layout.svelte` es un componente que envuelve a todas las páginas hijas. Es útil para definir una estructura común, como un encabezado o pie de página.
 
 <div v-click="1">
-En este caso el archivo `+layout.svelte` va a aplicar a todas las páginas dentro de `routes`, es decir a `/` y a `/cursos`.
+En este caso el archivo <code>+layout.svelte</code> va a aplicar a todas las páginas dentro de <code>routes</code>, es decir a <code>/</code> y a <code>/cursos</code>.
 </div>
 
 
@@ -353,7 +353,7 @@ src/
   </label>
   <label class="block">
     <input type="radio" v-model="answer" value="b" />
-    Se va a pisar el <code>+page.server</code> primer grupo por el segundo.
+    Se va a pisar el <code>+page.svelte</code> del primer grupo por el segundo.
   </label>
   <label class="block">
     <input type="radio" v-model="answer" value="c" />
