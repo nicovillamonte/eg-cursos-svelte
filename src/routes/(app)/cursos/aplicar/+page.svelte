@@ -1,10 +1,7 @@
 <script>
   import { CURSOS_MOCK } from '$lib/data/mocks/cursos'
-  // import { page } from '$app/state'
-
-  // // Get query params
-  // const cursoId = page.url.searchParams.get('cursoId') ?? ''
 </script>
+
 <h2>Aplicar a un curso</h2>
 
 <form action="/cursos/aplicar/aplicado">
