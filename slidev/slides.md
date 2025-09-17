@@ -288,7 +288,7 @@ Para obtener el valor del parámetro en la página, se puede utilizar la funció
   import { page } from '$app/state';
 </script>
 
-<h1>Curso ID: {$page.params.id}</h1>
+<h1>Curso ID: {page.params.id}</h1>
 ```
 
 <div class="w-full flex justify-center">
